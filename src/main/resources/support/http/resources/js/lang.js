@@ -46,8 +46,8 @@ druid.lang = function() {
 		'DefaultAutoCommit' : ['DefaultAutoCommit', '默认autocommit设置'],
 		'DefaultReadOnly' : ['DefaultReadOnly', '默认只读设置'],
 		'DefaultTransactionIsolation' : ['DefaultTransactionIsolation', '默认事务隔离'],//
-		'NotEmptyWaitCount' : ['NotEmptyWaitCount', '等待次数'],//
-		'NotEmptyWaitMillis' : ['NotEmptyWaitMillis', '等待最大时长'],//
+		'NotEmptyWaitCount' : ['NotEmptyWaitCount', '累计总次数'],//
+		'NotEmptyWaitMillis' : ['NotEmptyWaitMillis', '等待总时长'],//
 		'WaitThreadCount' : ['WaitThreadCount', '等待线程数量'],
 		'StartTransactionCount' : ['StartTransactionCount', '事务启动数'],//
 		'TransactionHistogram' : ['TransactionHistogram', '事务时间分布'],//
@@ -97,11 +97,11 @@ druid.lang = function() {
 		'DefaultAutoCommitDesc' : ['', ''],
 		'DefaultReadOnlyDesc' : ['', ''],
 		'DefaultTransactionIsolationDesc' : ['', ''],
-		'NotEmptyWaitCountDesc' : ['Total times for wait to get a connection', '获取连接时最多等待多少次'],//
-		'NotEmptyWaitMillisDesc' : ['Total millins for wait to get a connection', '获取连接时最多等待多长时间'],
+		'NotEmptyWaitCountDesc' : ['Total times for wait to get a connection', '获取连接时累计等待多少次'],//
+		'NotEmptyWaitMillisDesc' : ['Total millis for wait to get a connection', '获取连接时累计等待多长时间'],
 		'WaitThreadCountDesc' : ['The current waiting thread count', '当前等待获取连接的线程数'],
 		'StartTransactionCountDesc' : ['The count of start transaction', '事务开始的个数'],
-		'TransactionHistogramDesc' : ['The histogram values of transaction time, [0-10 ms, 10-100 ms, 100-1 s, 1-10 s, 10-100 s, >100 s]', '事务运行时间分布，分布区间为[0-10 ms, 10-100 ms, 100-1 s, 1-10 s, 10-100 s, >100 s]'],
+		'TransactionHistogramDesc' : ['The histogram values of transaction time, [0-1 ms, 1-10 ms, 10-100 ms, 100-1 s, 1-10 s, 10-100 s, >100 s]', '事务运行时间分布，分布区间为[0-1 ms, 1-10 ms, 10-100 ms, 100-1 s, 1-10 s, 10-100 s, >100 s]'],
 		'PoolingCountDesc' : ['The current usefull connection count', '当前连接池中的数目'],//
 		'PoolingPeakDesc' : ['The usefull connection peak count', '连接池中数目的峰值'],
 		'PoolingPeakTimeDesc' : ['The usefull connection peak time', '连接池数目峰值出现的时间'],
