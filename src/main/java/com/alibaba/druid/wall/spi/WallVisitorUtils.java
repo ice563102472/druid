@@ -1573,7 +1573,7 @@ public class WallVisitorUtils {
     }
 
     public static Object getValue(WallVisitor visitor, SQLExpr x) {
-        if (x != null && x.getAttributes().containsKey(EVAL_VALUE)) {
+        if (x != null && x.containsAttribute(EVAL_VALUE)) {
             return getValueFromAttributes(visitor, x);
         }
 
@@ -1729,7 +1729,7 @@ public class WallVisitorUtils {
                 SQLExpr selectItemExpr = queryBlock.getSelectList().get(0).getExpr();
                 if (selectItemExpr instanceof SQLAggregateExpr) {
                     if (((SQLAggregateExpr) selectItemExpr)
-                            .methodNameHashCod64() == FnvHash.Constants.COUNT) {
+                            .methodNameHashCode64() == FnvHash.Constants.COUNT) {
                         simpleCount = true;
                     }
                 }

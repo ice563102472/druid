@@ -160,28 +160,21 @@ public class SQLEvalVisitorUtils {
     }
 
     public static SQLEvalVisitor createEvalVisitor(String dbType) {
-        if (JdbcUtils.MYSQL.equals(dbType)) {
+        if (JdbcUtils.isMysqlDbType(dbType)) {
             return new MySqlEvalVisitorImpl();
         }
 
-        if (JdbcUtils.MARIADB.equals(dbType)) {
-            return new MySqlEvalVisitorImpl();
-        }
-
-        if (JdbcUtils.H2.equals(dbType)) {
-            return new MySqlEvalVisitorImpl();
-        }
-
-        if (JdbcUtils.ORACLE.equals(dbType) || JdbcUtils.ALI_ORACLE.equals(dbType)) {
+        if (JdbcUtils.isOracleDbType(dbType)) {
             return new OracleEvalVisitor();
         }
 
-        if (JdbcConstants.POSTGRESQL.equals(dbType)
-                || JdbcConstants.ENTERPRISEDB.equals(dbType)) {
+        if (JdbcUtils.isPgsqlDbType(dbType)
+                || JdbcConstants.ENTERPRISEDB.equals(dbType)
+                || JdbcConstants.POLARDB.equals(dbType)) {
             return new PGEvalVisitor();
         }
 
-        if (JdbcUtils.SQL_SERVER.equals(dbType) || JdbcUtils.JTDS.equals(dbType)) {
+        if (JdbcUtils.isSqlserverDbType(dbType)) {
             return new SQLServerEvalVisitor();
         }
 
@@ -246,8 +239,8 @@ public class SQLEvalVisitorUtils {
         if (function != null) {
             Object result = function.eval(visitor, x);
 
-            if (result != SQLEvalVisitor.EVAL_ERROR) {
-                x.getAttributes().put(EVAL_VALUE, result);
+            if (result != SQLEvalVisitor.EVAL_ERROR && result != null) {
+                x.putAttribute(EVAL_VALUE, result);
             }
             return false;
         }
@@ -744,7 +737,7 @@ public class SQLEvalVisitorUtils {
     public static boolean visit(SQLEvalVisitor visitor, SQLInListExpr x) {
         SQLExpr valueExpr = x.getExpr();
         valueExpr.accept(visitor);
-        if (!valueExpr.getAttributes().containsKey(EVAL_VALUE)) {
+        if (!valueExpr.containsAttribute(EVAL_VALUE)) {
             return false;
         }
         Object value = valueExpr.getAttribute(EVAL_VALUE);
