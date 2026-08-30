@@ -15,7 +15,7 @@
       "type": "java.lang.Boolean",
       "sourceType": "com.alibaba.druid.spring.boot.autoconfigure.stat.DruidFilterConfiguration",
       "description": "Enable StatFilter.",
-      "defaultValue": true
+      "defaultValue": false
     },
     {
       "name": "spring.datasource.druid.filter.config.enabled",
@@ -100,10 +100,16 @@
           "value": "h2"
         },
         {
+          "value": "lealone"
+        },
+        {
           "value": "dm"
         },
         {
           "value": "kingbase"
+        },
+        {
+          "value": "tydb"
         },
         {
           "value": "oceanbase"
@@ -166,10 +172,16 @@
           "value": "h2"
         },
         {
+          "value": "lealone"
+        },
+        {
           "value": "dm"
         },
         {
           "value": "kingbase"
+        },
+        {
+          "value": "tydb"
         },
         {
           "value": "oceanbase"
